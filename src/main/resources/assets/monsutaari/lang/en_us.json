@@ -1,0 +1,75 @@
+{
+"itemGroup.monsutaarigroup": "Monsutaari",
+
+
+"item.monsutaari.skeleton_head_spawn_egg": "Skeleton Head Spawn Egg",
+"item.monsutaari.wither_skeleton_head_spawn_egg": "Wither Skeleton Head Spawn Egg",
+"item.monsutaari.book_wyrm_spawn_egg": "Book Wyrm Spawn Egg",
+"item.monsutaari.clay_cube_spawn_egg": "Clay Cube Spawn Egg",
+"item.monsutaari.snow_cube_spawn_egg": "Snow Cube Spawn Egg",
+"item.monsutaari.quartz_skeleton_spawn_egg": "Quartz Skeleton Spawn Egg",
+"item.monsutaari.wisp_spawn_egg": "Wisp Spawn Egg",
+
+"block.monsutaari.golem_flower": "Golem Flower",
+"block.monsutaari.marigold": "Marigold",
+"block.monsutaari.wither_rose_bush": "Wither Rose Bush",
+"block.monsutaari.dubious_cake": "Dubious Cake",
+"block.monsutaari.bones_block": "Block of Bones",
+"block.monsutaari.trapweb": "Web Trap",
+"block.monsutaari.hanging_web": "Hanging Web",
+
+"entity.monsutaari.skeleton_head": "Skeleton Head",
+"entity.monsutaari.headless_skeleton": "Headless Skeleton",
+"entity.monsutaari.wither_skeleton_head": "Wither Skeleton Head",
+"entity.monsutaari.headless_wither_skeleton": "Headless Wither Skeleton",
+"entity.monsutaari.book_wyrm": "Book Wyrm",
+"entity.monsutaari.clay_cube": "Clay Cube",
+"entity.monsutaari.snow_cube": "Snow Cube",
+"entity.monsutaari.quartz_skeleton": "Quartz Skeleton",
+"entity.monsutaari.wisp": "Wisp",
+
+"item.minecraft.potion.effect.warped": "Potion of Warp",
+"item.minecraft.splash_potion.effect.warped": "Splash Potion of Warp",
+"item.minecraft.lingering_potion.effect.warped": "Lingering Potion of Warp",
+"item.minecraft.tipped_arrow.effect.warped": "Arrow of Warp",
+
+"item.minecraft.potion.effect.long_warped": "Potion of Warp",
+"item.minecraft.splash_potion.effect.long_warped": "Splash Potion of Warp",
+"item.minecraft.lingering_potion.effect.long_warped": "Lingering Potion of Warp",
+"item.minecraft.tipped_arrow.effect.long_warped": "Arrow of Warp",
+
+"item.minecraft.potion.effect.ghastly": "Potion of Ghastly",
+"item.minecraft.splash_potion.effect.ghastly": "Splash Potion of Ghastly",
+"item.minecraft.lingering_potion.effect.ghastly": "Lingering Potion of Ghastly",
+"item.minecraft.tipped_arrow.effect.ghastly": "Arrow of Ghastly",
+
+"item.minecraft.potion.effect.long_ghastly": "Potion of Ghastly",
+"item.minecraft.splash_potion.effect.long_ghastly": "Splash Potion of Ghastly",
+"item.minecraft.lingering_potion.effect.long_ghastly": "Lingering Potion of Ghastly",
+"item.minecraft.tipped_arrow.effect.long_ghastly": "Arrow of Ghastly",
+
+"item.minecraft.potion.effect.pumpkin_powered": "Potion of Pumpkin Power",
+"item.minecraft.splash_potion.effect.pumpkin_powered": "Splash Potion of Pumpkin Power",
+"item.minecraft.lingering_potion.effect.pumpkin_powered": "Lingering Potion of Pumpkin Power",
+"item.minecraft.tipped_arrow.effect.pumpkin_powered": "Arrow of Pumpkin Power",
+
+"item.minecraft.potion.effect.long_pumpkin_powered": "Potion of Pumpkin Power",
+"item.minecraft.splash_potion.effect.long_pumpkin_powered": "Splash Potion of Pumpkin Power",
+"item.minecraft.lingering_potion.effect.long_pumpkin_powered": "Lingering Potion of Pumpkin Power",
+"item.minecraft.tipped_arrow.effect.long_pumpkin_powered": "Arrow of Pumpkin Power",
+
+"effect.monsutaari.warped": "Warped",
+"effect.monsutaari.ghastly": "Ghastly",
+"effect.monsutaari.pumpkin_powered": "Pumpkin Powered",
+
+"effect.monsutaari.warped.0.desc": "Has a chance to cause random teleportation upon taking damage",
+"effect.monsutaari.ghastly.0.desc": "Become so ill that Undead mobs might think you're one of them",
+"effect.monsutaari.pumpkin_powered.0.desc": "Higher knockback and Snowball regenertation when wearing a Pumpkin",
+
+"enchantment.monsutaari.shocking": "Shocking",
+
+"advancements.husbandry.bone_appetit.title": "Bone Appetit",
+"advancements.husbandry.bone_appetit.description": "...It's edible"
+}
+
+

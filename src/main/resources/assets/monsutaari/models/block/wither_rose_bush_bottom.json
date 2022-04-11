@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "monsutaari:block/wither_rose_bush_bottom"
+  }
+}

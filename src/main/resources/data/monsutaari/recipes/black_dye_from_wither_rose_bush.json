@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "black_dye",
+  "ingredients": [
+    {
+      "item": "monsutaari:wither_rose_bush"
+    }
+  ],
+  "result": {
+    "item": "minecraft:black_dye",
+    "count": 2
+  }
+}

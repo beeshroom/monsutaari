@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "BEB",
+    "CCC"
+  ],
+  "key": {
+	"S": {
+      "item": "minecraft:spider_eye"
+    },
+    "A": {
+      "item": "minecraft:bone_meal"
+    },
+    "B": {
+      "item": "minecraft:ink_sac"
+    },
+    "C": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "monsutaari:dubious_cake"
+  }
+}

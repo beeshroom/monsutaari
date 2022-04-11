@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "bone",
+  "ingredients": [
+    {
+      "item": "monsutaari:bones_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bone",
+    "count": 9
+  }
+}
