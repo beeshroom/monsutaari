@@ -46,7 +46,8 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 		   }
 	   
 	   
-	   protected void registerGoals() {
+	   @Override
+	protected void registerGoals() {
 		      this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		      this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, WolfEntity.class, 6.0F, 1.0D, 1.2D));
 		      this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
@@ -59,15 +60,18 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 		   }
 	   
 
-		   protected SoundEvent getAmbientSound() {
+		   @Override
+		protected SoundEvent getAmbientSound() {
 		      return SoundEvents.SKELETON_AMBIENT;
 		   }
 
-		   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+		   @Override
+		protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 		      return SoundEvents.SKELETON_HURT;
 		   }
 
-		   protected SoundEvent getDeathSound() {
+		   @Override
+		protected SoundEvent getDeathSound() {
 		      return SoundEvents.SKELETON_DEATH;
 		   }
 
@@ -99,18 +103,21 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 					return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE) - 2.0f;
 			   }
  
+				@Override
 				public CreatureAttribute getMobType() {
 				      return CreatureAttribute.UNDEAD;
 			   } 
 		   
 		   
-		   protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
+		   @Override
+		protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
 			      super.populateDefaultEquipmentSlots(p_180481_1_);
 			     // this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.BOW));
 			   }
 		   
 
-		   @Nullable
+		   @Override
+		@Nullable
 		   public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
 			  // this.setQuartzGrown(0);
 			      int r = 0;
@@ -178,7 +185,8 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 
 			   } */
 		   
-		   public void aiStep() {
+		   @Override
+		public void aiStep() {
 			   super.aiStep();
 			   if (!this.level.isClientSide && this.isAlive() && --this.quartzTime <= 0) {
 			         this.playSound(SoundEvents.ITEM_PICKUP, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
@@ -213,13 +221,15 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 				   }
 		   
 			   
-			   protected void defineSynchedData() {
+			   @Override
+			protected void defineSynchedData() {
 				      super.defineSynchedData();
 				      this.entityData.define(DATA_TYPE_ID, 0);
 				   }
 			   
 			   
-		   public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
+		   @Override
+		public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
 			      super.readAdditionalSaveData(p_70037_1_);
 			      this.setQuartzGrown(p_70037_1_.getInt("QuartzGrown"));
 			     
@@ -228,7 +238,8 @@ public class QuartzSkeletonEntity extends MonsterEntity {
 			      }
 			   }
 
-			   public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
+			   @Override
+			public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
 			      super.addAdditionalSaveData(p_213281_1_);
 			      p_213281_1_.putInt("QuartzGrown", this.getQuartzGrown());
 			      p_213281_1_.putInt("QuartzGrowTime", this.quartzTime);

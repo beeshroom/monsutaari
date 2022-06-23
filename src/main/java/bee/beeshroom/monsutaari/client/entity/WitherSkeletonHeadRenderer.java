@@ -19,10 +19,12 @@ public class WitherSkeletonHeadRenderer extends MobRenderer<WitherSkeletonHeadEn
 	}
 
 	//@Override
+	@Override
 	public ResourceLocation getTextureLocation(WitherSkeletonHeadEntity entity) {
 		return TEXTURE;
 	}
 
+	@Override
 	protected void scale(WitherSkeletonHeadEntity p_225620_1_, MatrixStack p_225620_2_, float p_225620_3_) {
 	      p_225620_2_.scale(1.2F, 1.2F, 1.2F);
 	   }

@@ -33,7 +33,7 @@ public class MonsutaariSpawnEggItem extends SpawnEggItem {
     }
 
     public static void initSpawnEggs() {
-        final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "BY_ID");
+        final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "field_195987_b");
         DefaultDispenseItemBehavior dispenseBehaviour = new DefaultDispenseItemBehavior() {
             @Override
             protected ItemStack execute(IBlockSource source, ItemStack stack) {

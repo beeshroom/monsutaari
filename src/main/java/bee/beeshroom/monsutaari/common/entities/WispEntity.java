@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -96,7 +95,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		   } */
 
 	   
-	   protected void registerGoals() {
+	   @Override
+	protected void registerGoals() {
 		   this.goalSelector.addGoal(0, new SwimGoal(this));
 		    this.goalSelector.addGoal(1, new LookAtGoal(this, MobEntity.class, 8.0F));
 		    this.goalSelector.addGoal(3, new FollowMobGoal(this, 1.0D, 3.0F, 7.0F));
@@ -105,7 +105,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		     this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(Items.GLASS_BOTTLE), false));
 	   }
 
-	   protected void defineSynchedData() {
+	   @Override
+	protected void defineSynchedData() {
 	      super.defineSynchedData();
 	      this.entityData.define(DATA_TYPE_ID, 0);
 	   }
@@ -114,18 +115,21 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		      return MobEntity.createMobAttributes()
 		    		  .add(Attributes.MAX_HEALTH, 1.0D)
 		    		 // .add(Attributes.ATTACK_DAMAGE, 0.0D)
-		    		  .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
-		      		  .add(Attributes.FLYING_SPEED, (double)0.4F)
+		    		  .add(Attributes.MOVEMENT_SPEED, 0.3F)
+		      		  .add(Attributes.FLYING_SPEED, 0.4F)
 		    		  .add(Attributes.FOLLOW_RANGE, 48.0D);
 		   }
 	   
-	   protected PathNavigator createNavigation(World p_175447_1_) {
+	   @Override
+	protected PathNavigator createNavigation(World p_175447_1_) {
 		      FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, p_175447_1_) {
-		         public boolean isStableDestination(BlockPos p_188555_1_) {
+		         @Override
+				public boolean isStableDestination(BlockPos p_188555_1_) {
 		            return !this.level.getBlockState(p_188555_1_.below()).isAir();
 		         }
 
-		         public void tick() {
+		         @Override
+				public void tick() {
 		               super.tick(); 
 		         }
 		      };
@@ -135,26 +139,31 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		      return flyingpathnavigator;
 		   }
 	   
-	   public float getBrightness() {
+	   @Override
+	public float getBrightness() {
 		      return 1.0F;
 		   }
 	   
-	   public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
+	   @Override
+	public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
 		      return false;
 		   }
 	   
-	   protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {
+	   @Override
+	protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {
 	   }
 	   
 	/*   public CreatureAttribute getMobType() {
 		      return CreatureAttribute.UNDEAD;
 		   } */
 	   
-	   public boolean removeWhenFarAway(double p_213397_1_) {
+	   @Override
+	public boolean removeWhenFarAway(double p_213397_1_) {
 		      return !this.hasCustomName();
 		   }
 	   
-	   public void aiStep() {
+	   @Override
+	public void aiStep() {
 		      if (this.isInWater())
 		      {
 		    	  this.hurt(DamageSource.GENERIC, 1.0F);
@@ -176,20 +185,23 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		      super.aiStep();
 		   }
 
-	   @OnlyIn(Dist.CLIENT)
+	   @Override
+	@OnlyIn(Dist.CLIENT)
 	   public Vector3d getLeashOffset() {
-	      return new Vector3d(0.0D, (double)(0.5F * this.getEyeHeight()), (double)(this.getBbWidth() * 0.2F));
+	      return new Vector3d(0.0D, 0.5F * this.getEyeHeight(), this.getBbWidth() * 0.2F);
 	   }
 	   
 	   
 	   
-	   public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
+	   @Override
+	public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
 	      super.addAdditionalSaveData(p_213281_1_);
 	      p_213281_1_.putInt("WispType", this.getWispType());
 	
 	   }
 
-	   public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
+	   @Override
+	public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
 	      this.setWispType(p_70037_1_.getInt("WispType"));
 	      super.readAdditionalSaveData(p_70037_1_);
 	      
@@ -198,7 +210,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 
 	 
 
-	   public EntityType<? extends WispEntity> getType() {
+	   @Override
+	public EntityType<? extends WispEntity> getType() {
 	      return (EntityType<? extends WispEntity>)super.getType();
 	   }
 
@@ -207,7 +220,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 	      super.remove(keepData);
 	   }
 
-	   public void push(Entity entity) {
+	   @Override
+	public void push(Entity entity) {
 		   
 		   if (!(entity instanceof WispEntity) && !this.isLeashed() && this.isEffectiveAi())
 		   {
@@ -217,7 +231,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 		   }
 	   }
 	   
-	   public void playerTouch(PlayerEntity player) {
+	   @Override
+	public void playerTouch(PlayerEntity player) {
 		      if (this.isEffectiveAi()) {
 		         this.applyEffects(player);
 		      }
@@ -285,7 +300,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 
 	   
 
-	   protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+	   @Override
+	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 	      return 0.625F * p_213348_2_.height;
 	   }
 
@@ -311,12 +327,14 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 	   
 	
 
-	   public int getMaxHeadXRot() {
+	   @Override
+	public int getMaxHeadXRot() {
 	      return 0;
 	   }
 
 
-	   @Nullable
+	   @Override
+	@Nullable
 	   public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
 	      int r = this.getRandomWispType(p_213386_1_);
 	      
@@ -357,15 +375,18 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 	      return super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
 	   }
 
-	   public boolean isBaby() {
+	   @Override
+	public boolean isBaby() {
 		      return false;
 		   }
 
-	   public boolean canMate(AnimalEntity p_70878_1_) {
+	   @Override
+	public boolean canMate(AnimalEntity p_70878_1_) {
 		      return false;
 		   }
 	   
-	   @Nullable
+	   @Override
+	@Nullable
 	   public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
 	      return null;
 	   }
@@ -455,7 +476,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 			   } */
 
 		   //from Beehives
-		   public ActionResultType mobInteract(PlayerEntity entity, Hand hand) {
+		   @Override
+		public ActionResultType mobInteract(PlayerEntity entity, Hand hand) {
 			      ItemStack itemstack = entity.getItemInHand(hand);
 			      if (itemstack.getItem() instanceof GlassBottleItem) {
 			         
@@ -549,7 +571,8 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 			   } */
 		   
 		   
-		   protected void jumpInLiquid(ITag<Fluid> p_180466_1_) {
+		   @Override
+		protected void jumpInLiquid(ITag<Fluid> p_180466_1_) {
 			      this.setDeltaMovement(this.getDeltaMovement().add(0.0D, 0.01D, 0.0D));
 			   }
 		   
@@ -559,11 +582,13 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 			         super(p_i225729_2_);
 			      }
 
-			      public void tick() {
+			      @Override
+				public void tick() {
 			            super.tick();
 			      }
 
-			      protected boolean resetXRotOnTick() {
+			      @Override
+				protected boolean resetXRotOnTick() {
 			         return true;
 			      }
 			   }
@@ -573,15 +598,18 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 			         this.setFlags(EnumSet.of(Goal.Flag.MOVE));
 			      }
 
-			      public boolean canUse() {
+			      @Override
+				public boolean canUse() {
 			         return WispEntity.this.navigation.isDone() && WispEntity.this.random.nextInt(10) == 0;
 			      }
 
-			      public boolean canContinueToUse() {
+			      @Override
+				public boolean canContinueToUse() {
 			         return WispEntity.this.navigation.isInProgress();
 			      }
 
-			      public void start() {
+			      @Override
+				public void start() {
 			         Vector3d vector3d = this.findPos();
 			         if (vector3d != null) {
 			            WispEntity.this.navigation.moveTo(WispEntity.this.navigation.createPath(new BlockPos(vector3d), 1), 1.0D);
@@ -598,7 +626,7 @@ public class WispEntity extends AnimalEntity implements IFlyingAnimal
 
 			         int i = 8;
 			         Vector3d vector3d2 = RandomPositionGenerator.getAboveLandPos(WispEntity.this, 8, 7, vector3d, ((float)Math.PI / 2F), 2, 1);
-			         return vector3d2 != null ? vector3d2 : RandomPositionGenerator.getAirPos(WispEntity.this, 8, 4, -2, vector3d, (double)((float)Math.PI / 2F));
+			         return vector3d2 != null ? vector3d2 : RandomPositionGenerator.getAirPos(WispEntity.this, 8, 4, -2, vector3d, (float)Math.PI / 2F);
 			      }
 			   }
 

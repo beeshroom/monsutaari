@@ -72,7 +72,7 @@ public class ItemInit {
 			() -> new BlockItem(BlockInit.BONES_BLOCK.get(),
 					new Item.Properties().tab(Monsutaari.MONSUTAARI_GROUP)));
 		
-	public static final RegistryObject<BlockItem> THIN_WEB = ITEMS.register("hanging_web",
+	public static final RegistryObject<BlockItem> HANGING_WEB = ITEMS.register("hanging_web",
 			() -> new BlockItem(BlockInit.HANGING_WEB.get(),
 					new Item.Properties().tab(Monsutaari.MONSUTAARI_GROUP)));
 		

@@ -439,6 +439,14 @@ public class MonsutaariEvents {
 				{
 					event.setNewSpeed(item.getDestroySpeed(stack, state) * 2);
 				}
+				if (item instanceof PickaxeItem && state.is(BlockInit.BONES_BLOCK.get()))
+				{
+					event.setNewSpeed(item.getDestroySpeed(stack, state) * 2);
+				}
+				if (item instanceof ShovelItem && state.is(BlockInit.BONES_BLOCK.get()))
+				{
+					event.setNewSpeed(item.getDestroySpeed(stack, state) * 2);
+				}
 		}
 			
 			
@@ -482,7 +490,7 @@ public class MonsutaariEvents {
 				LivingEntity entity = event.getEntityLiving();
 				DamageSource source = event.getSource();
 				Entity attacker = source.getEntity();
-				Random random = ((LivingEntity)entity).getRandom(); 
+				Random random = entity.getRandom(); 
 				
 				if ((entity instanceof SkeletonEntity || entity instanceof WitherSkeletonEntity)
 						&& 
@@ -639,6 +647,10 @@ public class MonsutaariEvents {
 				Entity entity = event.getEntity();
 				float amount = event.getAmount();
 				DamageSource source = event.getSource();
+				
+				if (source.getEntity() instanceof LivingEntity)
+				{
+				
 				LivingEntity attacker = (LivingEntity) source.getEntity();
 				
 				if (!(attacker == null) && attacker instanceof LivingEntity)
@@ -653,6 +665,7 @@ public class MonsutaariEvents {
 					} 
 				} }
 				} 
+				}
 				
 				
 				if (Config.QUARTZ_SKELETONS.get())
@@ -660,6 +673,11 @@ public class MonsutaariEvents {
 				Entity entity = event.getEntity();
 				float amount = event.getAmount();
 				DamageSource source = event.getSource();
+				
+				// prevent a Crash caused by Dispenser Arrows not being a damage source from a LivingEntity
+				if (source.getEntity() instanceof LivingEntity)
+				{
+				
 				LivingEntity attacker = (LivingEntity) source.getEntity();
 			//	AbstractArrowEntity arrow = (AbstractArrowEntity) source.getEntity();
 				
@@ -694,6 +712,7 @@ public class MonsutaariEvents {
 					event.isCanceled();
 					} 
 				} 
+				}
 				}
 				}
 				

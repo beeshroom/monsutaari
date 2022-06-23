@@ -1,4 +1,3 @@
-
 package bee.beeshroom.monsutaari;
 
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -74,7 +73,7 @@ public class Config {
 				.define("enableQuartzSkeletons", true);
 		
 		NERF_BABY_MONSTERS = COMMON_BUILDER
-				.comment("Should Baby Hostile Mobs have half as much health as usual? (Default: false)")
+				.comment("Should Baby Hostile Mobs have half as much health? (Default: false)")
 				.define("enableNerfBabyMonster", false);
 		
 		SPIDERS_HUNT = COMMON_BUILDER

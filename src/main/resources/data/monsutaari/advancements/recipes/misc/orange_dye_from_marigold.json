@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "monsutaari:orange_dye_from_marigold"
+    ]
+  },
+  "criteria": {
+    "has_marigold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "monsutaari:marigold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "monsutaari:orange_dye_from_marigold"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_marigold",
+      "has_the_recipe"
+    ]
+  ]
+}

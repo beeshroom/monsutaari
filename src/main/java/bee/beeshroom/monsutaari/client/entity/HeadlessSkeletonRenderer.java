@@ -24,6 +24,7 @@ public class HeadlessSkeletonRenderer extends BipedRenderer<HeadlessSkeletonEnti
 	   }
 
 	//@Override
+	@Override
 	public ResourceLocation getTextureLocation(HeadlessSkeletonEntity entity) {
 		return TEXTURE;
 	}

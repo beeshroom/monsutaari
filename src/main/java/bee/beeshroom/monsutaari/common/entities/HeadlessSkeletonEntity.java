@@ -84,15 +84,18 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 	   }
 	   
 	   
-	   protected SoundEvent getAmbientSound() {
+	   @Override
+	protected SoundEvent getAmbientSound() {
 		      return SoundEvents.SKELETON_AMBIENT;
 		   }
 
-		   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+		   @Override
+		protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 		      return SoundEvents.SKELETON_HURT;
 		   }
 
-		   protected SoundEvent getDeathSound() {
+		   @Override
+		protected SoundEvent getDeathSound() {
 		      return SoundEvents.SKELETON_DEATH;
 		   }
 
@@ -100,11 +103,13 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 		      return SoundEvents.SKELETON_STEP;
 		   }
 
-	   public CreatureAttribute getMobType() {
+	   @Override
+	public CreatureAttribute getMobType() {
 	      return CreatureAttribute.UNDEAD;
 	   }
 
-	   public void aiStep() {
+	   @Override
+	public void aiStep() {
 	      boolean flag = this.isSunBurnTick();
 	      if (flag) {
 	         if (flag) {
@@ -125,12 +130,14 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 
 	  
 
-	   protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
+	   @Override
+	protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
 	      super.populateDefaultEquipmentSlots(p_180481_1_);
 	      this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.BOW));
 	   }
 
-	   @Nullable
+	   @Override
+	@Nullable
 	   public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
 	      p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
 	      this.populateDefaultEquipmentSlots(p_213386_2_);
@@ -164,7 +171,8 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 	      }
 	   } */
 
-	   public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
+	   @Override
+	public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
 	      ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileHelper.getWeaponHoldingHand(this, Items.BOW)));
 	      AbstractArrowEntity abstractarrowentity = this.getArrow(itemstack, p_82196_2_);
 	      if (this.getMainHandItem().getItem() instanceof net.minecraft.item.BowItem)
@@ -172,8 +180,8 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 	      double d0 = p_82196_1_.getX() - this.getX();
 	      double d1 = p_82196_1_.getY(0.3333333333333333D) - abstractarrowentity.getY();
 	      double d2 = p_82196_1_.getZ() - this.getZ();
-	      double d3 = (double)MathHelper.sqrt(d0 * d0 + d2 * d2);
-	      abstractarrowentity.shoot(d0, d1 + d3 * (double)0.2F, d2, 1.6F, (float)(14 - this.level.getDifficulty().getId() * 4));
+	      double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
+	      abstractarrowentity.shoot(d0, d1 + d3 * 0.2F, d2, 1.6F, 14 - this.level.getDifficulty().getId() * 4);
 	      this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 	      this.level.addFreshEntity(abstractarrowentity);
 	   }
@@ -182,16 +190,19 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 	      return ProjectileHelper.getMobArrow(this, p_213624_1_, p_213624_2_);
 	   }
 
-	   public boolean canFireProjectileWeapon(ShootableItem p_230280_1_) {
+	   @Override
+	public boolean canFireProjectileWeapon(ShootableItem p_230280_1_) {
 	      return p_230280_1_ == Items.BOW;
 	   }
 
-	   public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
+	   @Override
+	public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
 	      super.readAdditionalSaveData(p_70037_1_);
 	  //.reassessWeaponGoal();
 	   }
 
-	   public void setItemSlot(EquipmentSlotType p_184201_1_, ItemStack p_184201_2_) {
+	   @Override
+	public void setItemSlot(EquipmentSlotType p_184201_1_, ItemStack p_184201_2_) {
 	      super.setItemSlot(p_184201_1_, p_184201_2_);
 	//      if (!this.level.isClientSide) {
 	//         this.reassessWeaponGoal();
@@ -199,11 +210,13 @@ public class HeadlessSkeletonEntity extends MonsterEntity implements IRangedAtta
 
 	   }
 
-	   protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+	   @Override
+	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 	      return 1.2F;
 	   }
 
-	   public double getMyRidingOffset() {
+	   @Override
+	public double getMyRidingOffset() {
 	      return -0.6D;
 	   }
 	   

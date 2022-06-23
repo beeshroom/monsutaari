@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "monsutaari:yellow_dye_from_golem_flower"
+    ]
+  },
+  "criteria": {
+    "has_red_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "monsutaari:golem_flower"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "monsutaari:yellow_dye_from_golem_flower"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_flower",
+      "has_the_recipe"
+    ]
+  ]
+}

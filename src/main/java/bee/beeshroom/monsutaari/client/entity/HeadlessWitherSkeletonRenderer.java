@@ -25,10 +25,12 @@ public class HeadlessWitherSkeletonRenderer extends BipedRenderer<HeadlessWither
 	   }
 
 	//@Override
+	@Override
 	public ResourceLocation getTextureLocation(HeadlessWitherSkeletonEntity entity) {
 		return TEXTURE;
 	}
 
+	@Override
 	protected void scale(HeadlessWitherSkeletonEntity p_225620_1_, MatrixStack p_225620_2_, float p_225620_3_) {
 	      p_225620_2_.scale(1.2F, 1.2F, 1.2F);
 	   }

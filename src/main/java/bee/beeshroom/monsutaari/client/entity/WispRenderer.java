@@ -25,11 +25,13 @@ public class WispRenderer extends MobRenderer<WispEntity, WispModel<WispEntity>>
 	      this.addLayer(new WispLayer<>(this));
    }  
    
-   protected int getBlockLightLevel(WispEntity p_225624_1_, BlockPos p_225624_2_) {
+   @Override
+protected int getBlockLightLevel(WispEntity p_225624_1_, BlockPos p_225624_2_) {
 	      return 15;
 	   }
    
-   public ResourceLocation getTextureLocation(WispEntity p_110775_1_) {
+   @Override
+public ResourceLocation getTextureLocation(WispEntity p_110775_1_) {
 	     {
 	         switch(p_110775_1_.getWispType()) {
 	         case 0:

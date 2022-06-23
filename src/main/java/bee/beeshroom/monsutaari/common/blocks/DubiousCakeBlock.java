@@ -43,11 +43,13 @@ public class DubiousCakeBlock extends Block {
 	      this.registerDefaultState(this.stateDefinition.any().setValue(BITES, Integer.valueOf(0)));
 	   }
 
-	   public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
+	   @Override
+	public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
 	      return SHAPE_BY_BITE[p_220053_1_.getValue(BITES)];
 	   }
 
-	   public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+	   @Override
+	public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
 	      if (p_225533_2_.isClientSide) {
 	         ItemStack itemstack = p_225533_4_.getItemInHand(p_225533_5_);
 	         if (this.eat(p_225533_2_, p_225533_3_, p_225533_1_, p_225533_4_).consumesAction()) {
@@ -139,6 +141,11 @@ public class DubiousCakeBlock extends Block {
 			    	  player.addEffect(new EffectInstance (Effects.POISON, 100, 0)); 
 		    	  }
 		    	  
+		    	  if (random.nextInt(8) == 0)		    	  
+		    	  {
+			    	  player.addEffect(new EffectInstance (Effects.BLINDNESS, 300, 0)); 
+		    	  }
+		    	  
 	        //	 player.addEffect(new EffectInstance (Effects.HUNGER, 160, 0));
 
 	        //	 player.addEffect(new EffectInstance (Effects.POISON, 80, 0));
@@ -159,27 +166,33 @@ public class DubiousCakeBlock extends Block {
 	      }
 	   }
 
-	   public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, IWorld p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
+	   @Override
+	public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, IWorld p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
 	      return p_196271_2_ == Direction.DOWN && !p_196271_1_.canSurvive(p_196271_4_, p_196271_5_) ? Blocks.AIR.defaultBlockState() : super.updateShape(p_196271_1_, p_196271_2_, p_196271_3_, p_196271_4_, p_196271_5_, p_196271_6_);
 	   }
 
-	   public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
+	   @Override
+	public boolean canSurvive(BlockState p_196260_1_, IWorldReader p_196260_2_, BlockPos p_196260_3_) {
 	      return p_196260_2_.getBlockState(p_196260_3_.below()).getMaterial().isSolid();
 	   }
 
-	   protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
+	   @Override
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
 	      p_206840_1_.add(BITES);
 	   }
 
-	   public int getAnalogOutputSignal(BlockState p_180641_1_, World p_180641_2_, BlockPos p_180641_3_) {
+	   @Override
+	public int getAnalogOutputSignal(BlockState p_180641_1_, World p_180641_2_, BlockPos p_180641_3_) {
 	      return (4 - p_180641_1_.getValue(BITES)) * 2;
 	   }
 
-	   public boolean hasAnalogOutputSignal(BlockState p_149740_1_) {
+	   @Override
+	public boolean hasAnalogOutputSignal(BlockState p_149740_1_) {
 	      return true;
 	   }
 
-	   public boolean isPathfindable(BlockState p_196266_1_, IBlockReader p_196266_2_, BlockPos p_196266_3_, PathType p_196266_4_) {
+	   @Override
+	public boolean isPathfindable(BlockState p_196266_1_, IBlockReader p_196266_2_, BlockPos p_196266_3_, PathType p_196266_4_) {
 	      return false;
 	   }
 	}

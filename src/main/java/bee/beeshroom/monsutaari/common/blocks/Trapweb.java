@@ -55,7 +55,8 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 	   protected static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 2, 16);
 	 //  protected static final AxisAlignedBB TOUCH_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.25D, 0.875D);
 
-	   public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
+	   @Override
+	public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
 		      return SHAPE;
 		   } 
 	   
@@ -72,7 +73,8 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 	  
 	  
 	  
-	  public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
+	  @Override
+	public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
 	      return SHAPE_WEB[p_220053_1_.getValue(AGE)];
 	   }
 	  
@@ -88,10 +90,11 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 	      super.stepOn(world, pos, entity);
 	   } */
 	
-		   public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
+		   @Override
+		public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
 			   if (!(entity instanceof SpiderEntity))
 			   {
-				   entity.makeStuckInBlock(state, new Vector3d(0.15D, (double)0.08F, 0.15D));
+				   entity.makeStuckInBlock(state, new Vector3d(0.15D, 0.08F, 0.15D));
 				//   this.slightlyMelt(state, world, pos);
 			   }
 			   }
@@ -119,7 +122,8 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 		   
 		   // frosted ice code + edits
 
-		   public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
+		   @Override
+		public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
 			   if (!world.isAreaLoaded(pos, 1)) return; 
 			   //  this.tick(state, world, pos, rand);
 		//	   if ((rand.nextInt(3) == 0))
@@ -202,7 +206,8 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 			   }
 
 	//added this suppress warning
-			   @SuppressWarnings("deprecation")
+			   @Override
+			@SuppressWarnings("deprecation")
 			public void neighborChanged(BlockState state, World world, BlockPos pos1, Block block, BlockPos pos2, boolean bool) {
 			      if (block == this) //&& this.fewerNeigboursThan(world, pos1, 2)) 
 			    		  {
@@ -231,11 +236,13 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 			      return true;
 			   } */
 
-			  protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> state) {
+			  @Override
+			protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> state) {
 			      state.add(AGE);
 			   } 
 
-			   public ItemStack getCloneItemStack(IBlockReader p_185473_1_, BlockPos pos, BlockState state) {
+			   @Override
+			public ItemStack getCloneItemStack(IBlockReader p_185473_1_, BlockPos pos, BlockState state) {
 			      return ItemStack.EMPTY;
 			   }
  
@@ -248,7 +255,8 @@ public class Trapweb extends BreakableBlock implements net.minecraftforge.common
 
 			   //
 
-		   public PushReaction getPistonPushReaction(BlockState state) {
+		   @Override
+		public PushReaction getPistonPushReaction(BlockState state) {
 		      return PushReaction.DESTROY;
 		   }
 		   

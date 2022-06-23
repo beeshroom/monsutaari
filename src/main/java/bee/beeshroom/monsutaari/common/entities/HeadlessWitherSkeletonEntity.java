@@ -89,7 +89,8 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 	   
 	   
 	   
-	   public boolean doHurtTarget(Entity p_70652_1_) {
+	   @Override
+	public boolean doHurtTarget(Entity p_70652_1_) {
 		      if (!super.doHurtTarget(p_70652_1_)) {
 		         return false;
 		      } else {
@@ -101,7 +102,8 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 		      }
 		   }
 		 
-		 public boolean canBeAffected(EffectInstance p_70687_1_) {
+		 @Override
+		public boolean canBeAffected(EffectInstance p_70687_1_) {
 		      return p_70687_1_.getEffect() == Effects.WITHER ? false : super.canBeAffected(p_70687_1_);
 		   }
 	   
@@ -111,15 +113,18 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 	   
 	   
 	   
-	   protected SoundEvent getAmbientSound() {
+	   @Override
+	protected SoundEvent getAmbientSound() {
 		      return SoundEvents.WITHER_SKELETON_AMBIENT;
 		   }
 
-		   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+		   @Override
+		protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 		      return SoundEvents.WITHER_SKELETON_HURT;
 		   }
 
-		   protected SoundEvent getDeathSound() {
+		   @Override
+		protected SoundEvent getDeathSound() {
 		      return SoundEvents.WITHER_SKELETON_DEATH;
 		   }
 
@@ -127,11 +132,13 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 		      return SoundEvents.WITHER_SKELETON_STEP;
 		   }
 
-	   public CreatureAttribute getMobType() {
+	   @Override
+	public CreatureAttribute getMobType() {
 	      return CreatureAttribute.UNDEAD;
 	   }
 
-	   public void aiStep() {
+	   @Override
+	public void aiStep() {
 	   /*   boolean flag = this.isSunBurnTick();
 	      if (flag) {
 	         if (flag) {
@@ -152,12 +159,14 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 
 	  
 
-	   protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
+	   @Override
+	protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
 	      super.populateDefaultEquipmentSlots(p_180481_1_);
 	      this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.STONE_SWORD));
 	   }
 
-	   @Nullable
+	   @Override
+	@Nullable
 	   public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
 	      p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
 	      this.populateDefaultEquipmentSlots(p_213386_2_);
@@ -213,12 +222,14 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 	      return p_230280_1_ == Items.BOW;
 	   } */
 
-	   public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
+	   @Override
+	public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
 	      super.readAdditionalSaveData(p_70037_1_);
 	  //.reassessWeaponGoal();
 	   }
 
-	   public void setItemSlot(EquipmentSlotType p_184201_1_, ItemStack p_184201_2_) {
+	   @Override
+	public void setItemSlot(EquipmentSlotType p_184201_1_, ItemStack p_184201_2_) {
 	      super.setItemSlot(p_184201_1_, p_184201_2_);
 	//      if (!this.level.isClientSide) {
 	//         this.reassessWeaponGoal();
@@ -226,11 +237,13 @@ public class HeadlessWitherSkeletonEntity extends MonsterEntity implements IRang
 
 	   }
 
-	   protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+	   @Override
+	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 	      return 1.2F;
 	   }
 
-	   public double getMyRidingOffset() {
+	   @Override
+	public double getMyRidingOffset() {
 	      return -0.6D;
 	   }
 

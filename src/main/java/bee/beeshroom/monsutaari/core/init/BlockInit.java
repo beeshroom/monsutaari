@@ -72,10 +72,11 @@ public class BlockInit {
 							));
 	
 	public static final RegistryObject<Block> BONES_BLOCK = BLOCKS.register("bones_block",
-			() -> new BonesBlock(AbstractBlock.Properties.of(Material.STONE)
+			() -> new BonesBlock(AbstractBlock.Properties.of(Material.CLAY)
 					.strength(1.7F, 1.5F)
 					//.sound(SoundType.BONE_BLOCK)
-					.sound(SoundType.GRAVEL)
+//changed sound from Gravel to Netherrack bc omg netherrack sounds so good
+					.sound(SoundType.NETHERRACK)
 							));
 	
 	public static final RegistryObject<Block> HANGING_WEB = BLOCKS.register("hanging_web",

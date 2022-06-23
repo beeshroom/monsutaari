@@ -40,7 +40,7 @@ displayName="Monsutaari" #mandatory
 logoFile="logo.png" #optional
 
 # A text field displayed in the mod UI
-credits="Thanks turtywurty, cy4's tutorials, and mcjty for your modding tutorials." #optional
+credits="Thank-you to turtywurty, cy4's tutorials, and mcjty for your modding tutorials. Thank-you to SmellyModder for helping me with modded flower stuff." #optional
 
 # A text field displayed in the mod UI
 authors="beeshroom" #optional
@@ -50,7 +50,7 @@ description='''
 A mod about monsters!
 '''
 itemIcon="minecraft:rotten_flesh"
-configBackground="minecraft:textures/block/stone.png"
+configBackground="monsutaari:textures/block/bones_block.png"
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.monsutaari]] #optional

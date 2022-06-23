@@ -31,10 +31,12 @@ public class SnowCubeModel<T extends Entity> extends SegmentedModel<T> {
 
    }
 
-   public void setupAnim(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+   @Override
+public void setupAnim(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
    }
 
-   public Iterable<ModelRenderer> parts() {
+   @Override
+public Iterable<ModelRenderer> parts() {
       return ImmutableList.of(this.cube); //, this.eye0, this.eye1, this.mouth);
    }
 }

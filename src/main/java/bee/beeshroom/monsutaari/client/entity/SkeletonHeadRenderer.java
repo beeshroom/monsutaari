@@ -18,6 +18,7 @@ public class SkeletonHeadRenderer extends MobRenderer<SkeletonHeadEntity, Skelet
 	}
 
 	//@Override
+	@Override
 	public ResourceLocation getTextureLocation(SkeletonHeadEntity entity) {
 		return TEXTURE;
 	}

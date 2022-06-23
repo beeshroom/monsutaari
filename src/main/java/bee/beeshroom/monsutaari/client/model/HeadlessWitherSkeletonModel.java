@@ -57,7 +57,8 @@ public class HeadlessWitherSkeletonModel<T extends MobEntity & IRangedAttackMob>
 	      return null;
 	   } */
 
-   public void prepareMobModel(T p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
+   @Override
+public void prepareMobModel(T p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
       this.rightArmPose = BipedModel.ArmPose.EMPTY;
       this.leftArmPose = BipedModel.ArmPose.EMPTY;
       ItemStack itemstack = p_212843_1_.getItemInHand(Hand.MAIN_HAND);
@@ -72,7 +73,8 @@ public class HeadlessWitherSkeletonModel<T extends MobEntity & IRangedAttackMob>
       super.prepareMobModel(p_212843_1_, p_212843_2_, p_212843_3_, p_212843_4_);
    }
 
-   public void setupAnim(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+   @Override
+public void setupAnim(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
       super.setupAnim(p_225597_1_, p_225597_2_, p_225597_3_, p_225597_4_, p_225597_5_, p_225597_6_);
       ItemStack itemstack = p_225597_1_.getMainHandItem();
       if (p_225597_1_.isAggressive() && (itemstack.isEmpty() || itemstack.getItem() != Items.BOW)) {
@@ -91,7 +93,8 @@ public class HeadlessWitherSkeletonModel<T extends MobEntity & IRangedAttackMob>
 
    }
 
-   public void translateToHand(HandSide p_225599_1_, MatrixStack p_225599_2_) {
+   @Override
+public void translateToHand(HandSide p_225599_1_, MatrixStack p_225599_2_) {
       float f = p_225599_1_ == HandSide.RIGHT ? 1.0F : -1.0F;
       ModelRenderer modelrenderer = this.getArm(p_225599_1_);
       modelrenderer.x += f;

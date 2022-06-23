@@ -33,7 +33,8 @@ public class QuartzSkeletonRenderer extends BipedRenderer<QuartzSkeletonEntity, 
      // this.addLayer(new BipedArmorLayer<>(this, new SkeletonModel(0.5F, true), new SkeletonModel(1.0F, true)));
    }
 
-   public ResourceLocation getTextureLocation(QuartzSkeletonEntity p_110775_1_) {
+   @Override
+public ResourceLocation getTextureLocation(QuartzSkeletonEntity p_110775_1_) {
 	   switch(p_110775_1_.getQuartzGrown()) {
        case 0:
        default:
